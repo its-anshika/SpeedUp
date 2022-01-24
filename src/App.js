@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Nav from './components/Nav.js';
+import Landing from './components/Landing.js';
+import Challenge from './components/Challenge.js';
+import './index.css';
 
-function App() {
+const time = 60;
+
+class App extends React.Component {
+  state={
+    para: "Hello", timerstarted:false, timeleft: time, words:0, characters:0, wpm:0,
+  };
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+     <Landing />
+     <Challenge para={this.state.para} words={this.state.words} characters={this.state.characters} wpm={this.state.wpm} timeleft={this.state.timeleft} timerstarted={this.state.timerstarted} />
     </div>
   );
+}
 }
 
 export default App;
